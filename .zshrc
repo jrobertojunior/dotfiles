@@ -7,9 +7,8 @@ plugins=(git zsh-syntax-highlighting zsh-autosuggestions z)
 source $ZSH/oh-my-zsh.sh
 source $HOME/.local/bin/env
 
-# export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export NVM_LAZY_LOAD=true
+source "$HOME/.zsh-nvm.zsh"
 
 . "$HOME/.local/bin/env"
 
