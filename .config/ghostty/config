@@ -1,0 +1,18 @@
+# Enable option key usage
+macos-option-as-alt = true
+keybind = alt+left=unbind
+keybind = alt+right=unbind
+
+theme = nordic.conf
+
+# Remove topbar
+window-decoration = none
+# macos-titlebar-style = hidden
+
+window-padding-balance = true
+
+mouse-hide-while-typing = true
+
+adjust-cell-height = 1
+
+mouse-scroll-multiplier = 0.1
