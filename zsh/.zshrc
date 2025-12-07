@@ -1,7 +1,8 @@
 export ZSH="$HOME/.oh-my-zsh"
 export XDG_CONFIG_HOME="$HOME/.config"
 
-ZSH_THEME="robyrussel"
+# ZSH_THEME="robbyrussell"
+ZSH_THEME="eastwood"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -54,3 +55,5 @@ export ATUIN_FILTER_MODE=directory
 
 export MYVIMRC="$HOME/.config/nvim/init.lua"
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+eval "$(zoxide init zsh)"
