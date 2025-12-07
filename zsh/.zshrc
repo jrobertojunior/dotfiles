@@ -1,17 +1,14 @@
 export ZSH="$HOME/.oh-my-zsh"
 export XDG_CONFIG_HOME="$HOME/.config"
 
-ZSH_THEME="nordic-custom"
+ZSH_THEME="robyrussel"
+
+source $ZSH/oh-my-zsh.sh
 
 plugins=(git zsh-syntax-highlighting zsh-autosuggestions z)
 
-source $ZSH/oh-my-zsh.sh
-source $HOME/.local/bin/env
-
 export NVM_LAZY_LOAD=true
 source "$HOME/.zsh-nvm.zsh"
-
-. "$HOME/.local/bin/env"
 
 # inside tmux it uses zoxide to jump to directories, starts nvim and renames the tmux window
 function zvim() {
@@ -56,3 +53,4 @@ eval "$(atuin init zsh)"
 export ATUIN_FILTER_MODE=directory
 
 export MYVIMRC="$HOME/.config/nvim/init.lua"
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
