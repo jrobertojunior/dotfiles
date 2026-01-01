@@ -1,4 +1,49 @@
 keybinds clear-defaults=true {
+    normal {
+        // TABS
+        bind "Alt t" { NewTab; }
+        bind "Alt w" { CloseTab; }
+        bind "Alt [" { GoToPreviousTab; }
+        bind "Alt ]" { GoToNextTab; }
+        bind "Alt r" { SwitchToMode "renametab"; TabNameInput 0; }
+
+        // PANES
+        bind "Alt n" { NewPane; }
+        bind "Alt v" { NewPane "right"; }
+        bind "Alt s" { NewPane "stacked"; }
+        bind "Alt b" { NewPane "down"; }
+        bind "Alt x" { CloseFocus; }
+        bind "Ctrl h" { MoveFocus "left"; }
+        bind "Ctrl j" { MoveFocus "down"; }
+        bind "Ctrl k" { MoveFocus "up"; }
+        bind "Ctrl l" { MoveFocus "right"; }
+
+        bind "Alt +" { Resize "Increase"; }
+        bind "Alt -" { Resize "Decrease"; }
+        bind "Alt =" { Resize "Increase"; }
+
+        bind "Alt f" { ToggleFloatingPanes; }
+        // bind "Ctrl g" { SwitchToMode "locked"; }
+        bind "Alt ," { MoveTab "left"; }
+        bind "Alt ." { MoveTab "right"; }
+        // bind "Alt p" { TogglePaneInGroup; }
+        // bind "Alt Shift p" { ToggleGroupMarking; }
+        bind "Alt q" { Quit; }
+
+
+        bind "Alt g" {
+            Run "lazygit" {
+                floating true          // Open in a floating pane
+                close_on_exit true     // Automatically close the pane when lazygit exits
+                name "lazygit"         // Optional: Title the pane
+                x "5%"                 // Optional: Position from left (5% from edge)
+                y "5%"                 // Optional: Position from top
+                width "90%"            // Optional: Width of the pane
+                height "90%"           // Optional: Height of the pane
+            }
+            SwitchToMode "Normal";     // Return to normal mode immediately
+        }
+    }
     locked {
         bind "Ctrl g" { SwitchToMode "normal"; }
     }
@@ -16,7 +61,7 @@ keybinds clear-defaults=true {
         bind "j" { MoveFocus "down"; }
         bind "k" { MoveFocus "up"; }
         bind "l" { MoveFocus "right"; }
-        bind "n" { NewPane; SwitchToMode "normal"; }
+        // bind "n" { NewPane; SwitchToMode "normal"; }
         bind "p" { SwitchFocus; }
         bind "Ctrl p" { SwitchToMode "normal"; }
         bind "r" { NewPane "right"; SwitchToMode "normal"; }
@@ -134,27 +179,6 @@ keybinds clear-defaults=true {
         }
     }
     shared_except "locked" {
-        bind "Alt left" { MoveFocusOrTab "left"; }
-        bind "Alt down" { MoveFocus "down"; }
-        bind "Alt up" { MoveFocus "up"; }
-        bind "Alt right" { MoveFocusOrTab "right"; }
-        bind "Alt +" { Resize "Increase"; }
-        bind "Alt -" { Resize "Decrease"; }
-        bind "Alt =" { Resize "Increase"; }
-        bind "Alt [" { PreviousSwapLayout; }
-        bind "Alt ]" { NextSwapLayout; }
-        bind "Alt f" { ToggleFloatingPanes; }
-        bind "Ctrl g" { SwitchToMode "locked"; }
-        bind "Alt h" { MoveFocusOrTab "left"; }
-        bind "Alt i" { MoveTab "left"; }
-        bind "Alt j" { MoveFocus "down"; }
-        bind "Alt k" { MoveFocus "up"; }
-        bind "Alt l" { MoveFocusOrTab "right"; }
-        bind "Alt n" { NewPane; }
-        bind "Alt o" { MoveTab "right"; }
-        bind "Alt p" { TogglePaneInGroup; }
-        bind "Alt Shift p" { ToggleGroupMarking; }
-        bind "Ctrl q" { Quit; }
     }
     shared_except "locked" "move" {
         bind "Ctrl h" { SwitchToMode "move"; }
