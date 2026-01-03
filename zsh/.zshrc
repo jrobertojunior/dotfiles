@@ -57,3 +57,11 @@ export MYVIMRC="$HOME/.config/nvim/init.lua"
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 eval "$(zoxide init zsh)"
+
+
+# eza aliases
+alias ls='eza -l --icons --git'
+alias ll='eza -la --icons --git'
+alias l='eza -lA --icons --git'
+alias python='python3'
+alias pip='pip3'
