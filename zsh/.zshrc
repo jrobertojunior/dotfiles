@@ -11,24 +11,25 @@ plugins=(git zsh-syntax-highlighting zsh-autosuggestions z)
 export NVM_LAZY_LOAD=true
 source "$HOME/.zsh-nvm.zsh"
 
-# inside tmux it uses zoxide to jump to directories, starts nvim and renames the tmux window
+# inside tmux it uses zoxide fuzzy finder to jump to directories, starts nvim and renames the tmux window
 function zvim() {
-  # go to the folder
-  z $*
-
-  # create a new tmux window if not in tmux
-  if [ -z "$TMUX" ]; then
-    tmux new-window
+  local dir
+  dir=$(zoxide query -l | fzf --height 40% --reverse --preview 'eza -la --icons --git --color=always {}')
+  
+  if [ -z "$dir" ]; then
+    return 0
   fi
+
+  cd "$dir"
+
   # if not in tmux, create a new session
   if [ -z "$TMUX" ]; then
-    tmux new-session
+    tmux new-session -c "$dir" -n "$(basename "$dir")" "nvim"
+    return
   fi
   
-  tmux rename-window "$*"
-
-  # run nvim in the current window
-  tmux send-keys "nvim" C-m
+  tmux rename-window "$(basename "$dir")"
+  nvim
 }
 
 function killport() {
@@ -58,6 +59,14 @@ source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 eval "$(zoxide init zsh)"
 
+# fuzzy find zoxide directories
+function zf() {
+  local dir
+  dir=$(zoxide query -l | fzf --height 40% --reverse --preview 'eza -la --icons --git --color=always {}')
+  if [ -n "$dir" ]; then
+    cd "$dir"
+  fi
+}
 
 # eza aliases
 alias ls='eza -l --icons --git'
