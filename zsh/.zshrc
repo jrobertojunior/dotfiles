@@ -68,9 +68,26 @@ function zf() {
   fi
 }
 
+# ssh into hosts from ~/.ssh/config using fzf
+function zssh() {
+  local host
+  host=$(grep -E "^Host " ~/.ssh/config | awk '{print $2}' | grep -vE "github\.com|bitbucket\.org" | fzf --height 40% --reverse)
+  
+  if [ -z "$host" ]; then
+    return 0
+  fi
+
+  # if in tmux, rename window to host
+  if [ -n "$TMUX" ]; then
+    tmux rename-window "$host"
+  fi
+
+  ssh "$host"
+}
+
 # eza aliases
 alias ls='eza -l --icons --git'
 alias ll='eza -la --icons --git'
-alias l='eza -lA --icons --git'
+alias la='eza -a --icons --git'
 alias python='python3'
 alias pip='pip3'
