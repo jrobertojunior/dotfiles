@@ -70,12 +70,21 @@ function zf() {
 
 # ssh into hosts from ~/.ssh/config using fzf
 function zssh() {
-  local host
-  host=$(grep -E "^Host " ~/.ssh/config | awk '{print $2}' | grep -vE "github\.com|bitbucket\.org" | fzf --height 40% --reverse)
+  local selection host
+  # Parse ssh config to display "Host  user@hostname" format (user@hostname dimmed)
+  selection=$(awk '
+    /^Host / { if (host != "") print host "\033[2m" " <> " user "@" hostname "\033[0m"; host = $2; user = ""; hostname = "" }
+    /^[[:space:]]+User / { user = $2 }
+    /^[[:space:]]+HostName / { hostname = $2 }
+    END { if (host != "") print host "\033[2m" " <> " user "@" hostname "\033[0m" }
+  ' ~/.ssh/config | grep -vE "github\.com|bitbucket\.org" | fzf --ansi --height 40% --reverse)
   
-  if [ -z "$host" ]; then
+  if [ -z "$selection" ]; then
     return 0
   fi
+
+  # Extract the Host alias (first field)
+  host=$(echo "$selection" | awk '{print $1}')
 
   # if in tmux, rename window to host
   if [ -n "$TMUX" ]; then
