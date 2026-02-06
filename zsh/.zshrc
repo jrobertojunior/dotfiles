@@ -88,7 +88,7 @@ function zssh() {
 
   # if in tmux, rename window to host
   if [ -n "$TMUX" ]; then
-    tmux rename-window "$host"
+    tmux rename-window "🖥️ $host"
   fi
 
   ssh "$host"
@@ -100,3 +100,9 @@ alias ll='eza -la --icons --git'
 alias la='eza -a --icons --git'
 alias python='python3'
 alias pip='pip3'
+
+alias lzd="lazydocker"
+alias lzg="lazygit"
+
+export EDITOR='nvim'
+export PATH="$HOME/.local/bin:$PATH"
