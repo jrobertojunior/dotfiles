@@ -104,5 +104,7 @@ alias pip='pip3'
 alias lzd="lazydocker"
 alias lzg="lazygit"
 
+alias ts='date +%s'
+
 export EDITOR='nvim'
 export PATH="$HOME/.local/bin:$PATH"
