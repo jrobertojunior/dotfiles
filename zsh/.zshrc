@@ -106,5 +106,7 @@ alias lzg="lazygit"
 
 alias ts='date +%s'
 
+alias cc='claude'
+
 export EDITOR='nvim'
 export PATH="$HOME/.local/bin:$PATH"
