@@ -15,7 +15,7 @@ source "$HOME/.zsh-nvm.zsh"
 function zvim() {
   local dir
   dir=$(zoxide query -l | fzf --height 40% --reverse --preview 'eza -la --icons --git --color=always {}')
-  
+
   if [ -z "$dir" ]; then
     return 0
   fi
@@ -27,7 +27,7 @@ function zvim() {
     tmux new-session -c "$dir" -n "$(basename "$dir")" "nvim"
     return
   fi
-  
+
   tmux rename-window "$(basename "$dir")"
   nvim
 }
@@ -107,6 +107,8 @@ alias lzg="lazygit"
 alias ts='date +%s'
 
 alias cc='claude'
+alias tvim='tv nvim'
+alias tvim='tv git-repos'
 
 export EDITOR='nvim'
 export PATH="$HOME/.local/bin:$PATH"
