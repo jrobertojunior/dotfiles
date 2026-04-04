@@ -109,6 +109,7 @@ alias ts='date +%s'
 alias cc='claude'
 alias tvim='tv nvim'
 alias tvim='tv git-repos'
+alias tssh='tv ssh-hosts'
 
 export EDITOR='nvim'
 export PATH="$HOME/.local/bin:$PATH"
