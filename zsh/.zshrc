@@ -111,5 +111,7 @@ alias tvim='tv nvim'
 alias tvim='tv git-repos'
 alias tssh='tv ssh-hosts'
 
+alias caffe="caffeinate -d -i"
+
 export EDITOR='nvim'
 export PATH="$HOME/.local/bin:$PATH"
