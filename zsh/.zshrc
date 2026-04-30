@@ -98,7 +98,7 @@ function zssh() {
 alias ls='eza -l --icons --git'
 alias ll='eza -la --icons --git'
 alias la='eza -a --icons --git'
-alias python='python3'
+alias python='/opt/homebrew/bin/python3.10'
 alias pip='pip3'
 
 alias lzd="lazydocker"
@@ -112,6 +112,8 @@ alias tvim='tv git-repos'
 alias tssh='tv ssh-hosts'
 
 alias caffe="caffeinate -d -i"
+
+alias host="ipconfig getifaddr en0"
 
 export EDITOR='nvim'
 export PATH="$HOME/.local/bin:$PATH"
