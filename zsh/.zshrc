@@ -11,6 +11,10 @@ plugins=(git zsh-syntax-highlighting zsh-autosuggestions z)
 export NVM_LAZY_LOAD=true
 source "$HOME/.zsh-nvm.zsh"
 
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
 # inside tmux it uses zoxide fuzzy finder to jump to directories, starts nvim and renames the tmux window
 function zvim() {
   local dir
@@ -98,7 +102,6 @@ function zssh() {
 alias ls='eza -l --icons --git'
 alias ll='eza -la --icons --git'
 alias la='eza -a --icons --git'
-alias python='/opt/homebrew/bin/python3.10'
 alias pip='pip3'
 
 alias lzd="lazydocker"
@@ -117,3 +120,5 @@ alias host="ipconfig getifaddr en0"
 
 export EDITOR='nvim'
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+export JAVA_HOME=/opt/homebrew/opt/openjdk@17
