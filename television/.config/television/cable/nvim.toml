@@ -1,0 +1,17 @@
+[metadata]
+name = "nvim"
+description = "A channel to find and open nvim projects"
+
+[source]
+command = "zoxide query -l"
+
+[keybindings]
+enter = "actions:zap"
+
+[actions.zap]
+description = "Open neovim here"
+command = "tmux rename-window \"$(basename '{}')\" && cd '{}' && nvim ."
+mode = "execute"
+
+[preview]
+command = "cd '{}' && eza -la --icons --git --color=always"

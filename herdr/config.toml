@@ -1,0 +1,54 @@
+onboarding = false
+
+[ui.toast]
+delivery = "herdr"
+
+[ui]
+show_agent_labels_on_pane_borders = false
+
+[theme]
+name = "nord"
+auto_switch = false
+
+[keys]
+focus_pane_left = ["ctrl+h"]
+focus_pane_right = ["ctrl+l"]
+focus_pane_down = ["ctrl+j"]
+focus_pane_up = ["ctrl+k"]
+previous_tab = ["alt+shift+tab", "alt+["]
+next_tab = ["alt+tab", "alt+]"]
+split_vertical = ["alt+v"]
+split_horizontal = ["alt+b"]
+zoom = ["alt+z"]
+new_tab = ["alt+n"]
+close_tab = ["alt+w"]
+close_pane = ["alt+x"]
+detach = "alt+d"
+new_workspace = "alt+shift+n"
+close_workspace = "alt+shift+w"
+navigate_workspace_up = ["up", "k"]
+navigate_workspace_down = ["down", "j"]
+previous_workspace = "alt+shift+["
+next_workspace = "alt+shift+]"
+goto = "alt+shift+s"
+workspace_picker = ["alt+a"]
+resize_mode = "alt+r"
+toggle_sidebar = "alt+s"
+copy_mode = "alt+space"
+
+[[keys.command]]
+key = "alt+g"
+type = "popup"
+command = "lazygit"
+description = "run lazygit"
+width = "80%"
+height = "80%"
+
+[[keys.command]]
+key = "alt+f"
+type = "popup"
+command = "exec \"${SHELL:-sh}\""
+description = "open scratch terminal"
+width = "80%"
+height = "80%"
+
