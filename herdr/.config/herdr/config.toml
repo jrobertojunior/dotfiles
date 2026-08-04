@@ -52,3 +52,8 @@ description = "open scratch terminal"
 width = "80%"
 height = "80%"
 
+[[keys.command]]
+key = "alt+k"
+type = "plugin_action"
+command = "herdr-navigator.open"
+description = "jump to anything"
