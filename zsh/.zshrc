@@ -122,3 +122,9 @@ export EDITOR='nvim'
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 export JAVA_HOME=/opt/homebrew/opt/openjdk@17
+
+# Option/Alt + Left/Right jump one word.
+# Ghostty sends ESC[1;3D / ESC[1;3C and herdr passes them through unchanged.
+# Without these bindings zsh types the tail of the sequence (";3D" / ";3C").
+bindkey $'\e[1;3D' backward-word
+bindkey $'\e[1;3C' forward-word
