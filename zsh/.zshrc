@@ -1,10 +1,18 @@
 export ZSH="$HOME/.oh-my-zsh"
 export XDG_CONFIG_HOME="$HOME/.config"
 
+[ -f "$HOME/.config/bitbucket/bfc-credentials.env" ] && source "$HOME/.config/bitbucket/bfc-credentials.env"
+
 # ZSH_THEME="robbyrussell"
-ZSH_THEME="eastwood"
+# ZSH_THEME="eastwood"
+ZSH_THEME=""
 
 source $ZSH/oh-my-zsh.sh
+
+# Custom prompt: time, user, directory (~ shortcut, max 3 subpaths).
+autoload -Uz colors && colors
+PROMPT='%F{243}%D{%H:%M}%f %F{213}%n%f %F{74}%3~%f
+%F{green}$%f '
 
 plugins=(git zsh-syntax-highlighting zsh-autosuggestions z)
 
