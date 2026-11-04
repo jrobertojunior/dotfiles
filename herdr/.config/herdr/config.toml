@@ -54,13 +54,13 @@ width = "80%"
 height = "80%"
 
 [[keys.command]]
-key = "alt+k"
-type = "plugin_action"
-command = "herdr-navigator.open"
-description = "jump to anything"
-
-[[keys.command]]
 key = "alt+o"
 type = "shell"
 command = "open \"${HERDR_ACTIVE_PANE_CWD:-.}\""
 description = "open cwd in Finder"
+
+[[keys.command]]
+key = "alt+k"
+type = "plugin_action"
+command = "herdr-bar.open"
+description = "command bar"
